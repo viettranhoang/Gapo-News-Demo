@@ -1,0 +1,3 @@
+rootProject.name = "gapo"
+include ':app'
+include ':core'

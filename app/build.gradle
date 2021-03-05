@@ -1,0 +1,147 @@
+import com.vietth.gapo.buildsrc.Libs
+import com.vietth.gapo.buildsrc.Versions
+
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-parcelize'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'dagger.hilt.android.plugin'
+apply plugin: "androidx.navigation.safeargs.kotlin"
+
+android {
+    compileSdkVersion Versions.compileSdkVersion
+    buildToolsVersion Versions.buildToolsVersion
+
+    defaultConfig {
+        applicationId "com.vietth.gapo"
+        minSdkVersion Versions.minSdkVersion
+        targetSdkVersion Versions.targetSdkVersion
+        versionCode 1
+        versionName "1.0.0"
+
+        multiDexEnabled true
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    compileOptions {
+        coreLibraryDesugaringEnabled true
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = '1.8'
+        suppressWarnings = true
+    }
+
+    buildFeatures {
+        dataBinding = true
+        viewBinding = true
+    }
+
+    dexOptions {
+        preDexLibraries = true
+        javaMaxHeapSize "4g"
+    }
+
+    lintOptions {
+        disable 'NullSafeMutableLiveData'
+        quiet true
+        abortOnError false
+        ignoreWarnings true
+    }
+
+    applicationVariants.all { variant ->
+        variant.outputs.all { output ->
+            def formattedDate = new Date().format('ddMMyyyy')
+            String newName = "${variant.mergedFlavor.applicationId}-${variant.name}-${variant.mergedFlavor.versionCode}-${variant.mergedFlavor.versionName}-${formattedDate}.apk"
+            output.outputFileName = new File("../", newName)
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+kapt {
+    correctErrorTypes = true
+    useBuildCache = true
+    javacOptions {
+        option("-Xmaxerrs", 500)
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+    implementation project(Libs.Modules.core)
+
+    implementation Libs.Kotlin.stdlib
+    implementation Libs.Kotlin.Coroutines.core
+    implementation Libs.Kotlin.Coroutines.android
+
+    implementation Libs.AndroidX.coreKtx
+    implementation Libs.AndroidX.appCompat
+    implementation Libs.AndroidX.activityKtx
+    implementation Libs.AndroidX.fragmentKtx
+    implementation Libs.AndroidX.recyclerView
+    implementation Libs.AndroidX.constraintLayout
+    implementation Libs.AndroidX.material
+    implementation Libs.AndroidX.transitionKtx
+    implementation Libs.AndroidX.multidex
+    implementation Libs.AndroidX.security
+    implementation Libs.AndroidX.paging3
+
+    implementation Libs.AndroidX.Lifecycle.viewModelKtx
+    implementation Libs.AndroidX.Lifecycle.liveDataKtx
+    implementation Libs.AndroidX.Lifecycle.commonJava8
+    implementation Libs.AndroidX.Lifecycle.process
+
+    implementation Libs.AndroidX.Navigation.ui
+    implementation Libs.AndroidX.Navigation.fragment
+
+    implementation Libs.AndroidX.Leanback.core
+
+    implementation Libs.AndroidX.Hilt.common
+    implementation Libs.AndroidX.Hilt.viewModel
+    kapt Libs.AndroidX.Hilt.compiler
+
+    kapt Libs.AndroidX.Room.compiler
+    implementation Libs.AndroidX.Room.runtime
+    implementation Libs.AndroidX.Room.coreKtx
+
+    implementation Libs.Dagger.hiltAndroid
+    kapt Libs.Dagger.hiltCompiler
+
+    implementation Libs.OkHttp.core
+    implementation Libs.OkHttp.loggingInterceptor
+
+    implementation Libs.Retrofit.core
+    implementation Libs.Retrofit.moshiConverter
+
+    implementation Libs.Moshi.moshiKotlin
+    implementation Libs.Moshi.adapters
+    kapt Libs.Moshi.kotlinCodegen
+
+    implementation Libs.ExoPlayer.exoPlayer
+    implementation Libs.ExoPlayer.core
+    implementation Libs.ExoPlayer.ui
+    implementation Libs.ExoPlayer.hls
+    implementation Libs.ExoPlayer.okhttp
+
+    implementation Libs.Glide.core
+
+    implementation Libs.autoDimension
+    implementation Libs.toasty
+    implementation Libs.timber
+    implementation Libs.stateMachine
+
+    coreLibraryDesugaring Libs.desugarJDKLibs
+
+    testImplementation 'junit:junit:4.+'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+}
