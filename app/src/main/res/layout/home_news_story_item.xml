@@ -7,7 +7,7 @@
 
         <variable
             name="item"
-            type="com.vietth.gapo.presentation.features.home.model.HomeNewsGalleryViewData" />
+            type="com.vietth.gapo.presentation.features.home.model.HomeNewsStoryViewData" />
 
         <variable
             name="homeViewModel"
@@ -29,44 +29,61 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <FrameLayout
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/layout_images"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                app:layout_constraintDimensionRatio="H,16:12"
+                app:layout_constraintDimensionRatio="H,16:10"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
-                <androidx.viewpager2.widget.ViewPager2
-                    android:id="@+id/view_pager"
-                    android:layout_marginBottom="?attr/home_item_margin_common"
-                    android:layout_width="match_parent"
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    app:submitList="@{item.images}" />
+                    android:layout_marginEnd="?attr/home_item_story_margin_size"
+                    app:glideRequests="@{glideRequests}"
+                    app:layout_constraintEnd_toEndOf="@id/guideline_1"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:newsStory="@{item.images.get(0)}" />
 
-                <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/text_number"
-                    android:layout_width="@dimen/_40dp"
-                    android:layout_height="@dimen/_25dp"
-                    android:layout_gravity="top|end"
-                    android:layout_margin="@dimen/_5dp"
-                    android:background="@drawable/home_news_gallery_number_text_background"
-                    android:gravity="center"
-                    android:textColor="@color/white"
-                    android:textSize="@dimen/_11sp"
-                    tools:text="1/13" />
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="?attr/home_item_story_margin_size"
+                    android:layout_marginBottom="?attr/home_item_story_margin_size"
+                    app:glideRequests="@{glideRequests}"
+                    app:layout_constraintBottom_toBottomOf="@id/guideline_2"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@id/guideline_1"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:newsStory="@{item.images.get(1)}" />
 
-                <ru.tinkoff.scrollingpagerindicator.ScrollingPagerIndicator
-                    android:id="@+id/indicator_gallery"
-                    android:layout_width="wrap_content"
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="?attr/home_item_story_margin_size"
+                    android:layout_marginTop="?attr/home_item_story_margin_size"
+                    app:glideRequests="@{glideRequests}"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@id/guideline_1"
+                    app:layout_constraintTop_toTopOf="@id/guideline_2"
+                    app:newsStory="@{item.images.get(2)}" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guideline_1"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="bottom|center_horizontal"
-                    app:spi_dotColor="@color/grey_707070"
-                    app:spi_dotSelectedColor="@color/dark_rouge"
-                    app:spi_dotSelectedSize="5dp"
-                    app:spi_dotSize="5dp"
-                    app:spi_dotSpacing="3dp" />
-            </FrameLayout>
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.65" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guideline_2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_percent="0.5" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/text_title"

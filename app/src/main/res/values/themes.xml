@@ -3,7 +3,7 @@
     <style name="Theme.Gapo" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/purple_500</item>
-        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorPrimaryVariant">@color/white</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/teal_200</item>
@@ -11,6 +11,7 @@
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <item name="android:windowLightStatusBar">true</item>
         <!-- Customize your theme here. -->
 
         <item name="home_item_margin_common">@dimen/home_margin_common</item>
@@ -24,5 +25,6 @@
         <item name="home_item_publisher_title_size">@dimen/_10sp</item>
         <item name="home_item_publisher_title_color">@color/black_alpha_60</item>
         <item name="home_item_icon_size">@dimen/_15dp</item>
+        <item name="home_item_story_margin_size">@dimen/_1dp</item>
     </style>
 </resources>

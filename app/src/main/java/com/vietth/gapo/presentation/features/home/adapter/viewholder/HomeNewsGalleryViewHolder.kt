@@ -22,12 +22,14 @@ class HomeNewsGalleryViewHolder(
     init {
         binding.viewPager.apply {
             adapter = HomeNewsGalleryAdapter(glideRequests, dispatcherDefault)
+            binding.indicatorGallery.attachToPager(this)
             registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
                 override fun onPageSelected(position: Int) {
                     binding.textNumber.text = "${position + 1}/${item?.images?.size}"
                 }
             })
         }
+
     }
 
     override fun bind(item: HomeNewsViewData) {

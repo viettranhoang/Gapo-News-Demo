@@ -11,7 +11,6 @@ import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.flow
-import kotlinx.coroutines.flow.merge
 import timber.log.Timber
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -34,7 +33,8 @@ class NewsRepositoryImpl @Inject constructor(
         }.catch {
             Timber.e(it)
         }
-        return merge(cacheFlow, remoteFlow)
+//        return merge(cacheFlow, remoteFlow)
+        return remoteFlow
     }
 
     override suspend fun fetchNewsDetail(): Result<News> {
