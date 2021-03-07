@@ -7,13 +7,13 @@
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.vietth.gapo.presentation.home.HomeFragment"
+        android:name="com.vietth.gapo.presentation.features.home.HomeFragment"
         android:label="Home"
         tools:layout="@layout/home_fragment"/>
 
     <fragment
         android:id="@+id/accountFragment"
-        android:name="com.vietth.gapo.presentation.account.AccountFragment"
+        android:name="com.vietth.gapo.presentation.features.account.AccountFragment"
         android:label="Account">
         <action
             android:id="@+id/action_accountFragment_to_detailFragment"
@@ -22,6 +22,6 @@
 
     <fragment
         android:id="@+id/detailFragment"
-        android:name="com.vietth.gapo.presentation.detail.DetailFragment"
+        android:name="com.vietth.gapo.presentation.features.detail.DetailFragment"
         android:label="Detail"/>
 </navigation>

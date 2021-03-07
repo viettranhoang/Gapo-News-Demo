@@ -11,7 +11,7 @@ object DateMoshiAdapter {
     @FromJson
     fun fromJson(date: String?): Date? {
         if (date == null) return null
-        val formatter = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", Locale.getDefault())
+        val formatter = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'", Locale.getDefault())
         return try {
             formatter.parse(date)
         } catch (e: ParseException) {
@@ -22,7 +22,7 @@ object DateMoshiAdapter {
     @ToJson
     fun toJson(date: Date?): String? {
         if (date == null) return null
-        val formatter = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", Locale.getDefault())
+        val formatter = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'", Locale.getDefault())
         return formatter.format(date)
     }
 }

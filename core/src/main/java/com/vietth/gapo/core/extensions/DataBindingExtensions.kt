@@ -11,6 +11,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import androidx.viewpager2.widget.ViewPager2
 
 inline fun <reified T : ViewDataBinding> ViewGroup.inflateViewDataBinding(
     layoutInflater: LayoutInflater,
@@ -39,6 +40,12 @@ inline var View.isInvisible: Boolean?
 
 @BindingAdapter("submitList")
 fun <T> RecyclerView.setDataBinding(data: List<T>?) {
+    @Suppress("UNCHECKED_CAST")
+    (adapter as? ListAdapter<T, *>)?.submitList(data)
+}
+
+@BindingAdapter("submitList")
+fun <T> ViewPager2.setDataBinding(data: List<T>?) {
     @Suppress("UNCHECKED_CAST")
     (adapter as? ListAdapter<T, *>)?.submitList(data)
 }
