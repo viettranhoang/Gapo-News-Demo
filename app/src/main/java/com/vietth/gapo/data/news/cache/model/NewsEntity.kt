@@ -8,6 +8,7 @@ import com.vietth.gapo.data.news.cache.database.NewsConverter
 import com.vietth.gapo.domain.news.model.Content
 import com.vietth.gapo.domain.news.model.News
 import com.vietth.gapo.domain.news.model.NewsType
+import com.vietth.gapo.domain.news.model.Publisher
 import java.util.*
 
 @Entity(tableName = "news")
@@ -21,11 +22,13 @@ data class NewsEntity(
     @ColumnInfo(name = "published_date") val publishedDate: Date?,
     @ColumnInfo(name = "images") val images: List<String>,
     @ColumnInfo(name = "content") val content: Content?,
+    @ColumnInfo(name = "publisher") val publisher: Publisher?,
+    @ColumnInfo(name = "thumb") val thumb: String?,
 )
 
 fun NewsEntity.mapToDomain() =
     News(
-        id, title, description, type, publishedDate, images, content
+        id, title, description, type, publishedDate, images, content, publisher, thumb
     )
 
 fun List<NewsEntity>.mapToDomain() = map { it.mapToDomain() }
@@ -38,7 +41,9 @@ fun News.mapToEntity() =
         type,
         publishedDate,
         images,
-        content
+        content,
+        publisher,
+        thumb
     )
 
 fun List<News>.mapToEntity() = map { it.mapToEntity() }

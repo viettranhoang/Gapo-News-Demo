@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="item"
+            type="com.vietth.gapo.presentation.features.home.model.HomeNewsArticleViewData" />
+
+        <variable
+            name="homeViewModel"
+            type="com.vietth.gapo.presentation.features.home.viewmodel.HomeViewModel" />
+
+        <variable
+            name="glideRequests"
+            type="com.vietth.gapo.core.glide.GlideRequests" />
+
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        app:cardElevation="?attr/home_item_card_elevation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="?attr/home_item_corner_radius">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/image_preview"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                app:glideRequests="@{glideRequests}"
+                app:layout_constraintDimensionRatio="H,16:9"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:newsArticleThumb="@{item.thumb}" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/text_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="?attr/home_item_margin_common"
+                android:layout_marginTop="?attr/home_item_margin_common"
+                android:layout_marginEnd="?attr/home_item_margin_common"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:text="@{item.title}"
+                android:textColor="?attr/home_item_title_color"
+                android:textSize="?attr/home_item_title_size"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/image_preview"
+                tools:text="@tools:sample/lorem/random" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/text_description"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="?attr/home_item_margin_common"
+                android:layout_marginTop="?attr/home_item_margin_common"
+                android:layout_marginEnd="?attr/home_item_margin_common"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:text="@{item.description}"
+                android:textColor="?attr/home_item_description_color"
+                android:textSize="?attr/home_item_description_size"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/text_title"
+                tools:text="@tools:sample/lorem/random" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="?attr/home_item_margin_common"
+                android:paddingTop="?attr/home_item_margin_common"
+                android:paddingEnd="?attr/home_item_margin_common"
+                android:paddingBottom="?attr/home_item_margin_common"
+                app:layout_constraintTop_toBottomOf="@id/text_description">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/image_publisher"
+                    android:layout_width="?attr/home_item_publisher_avatar_size"
+                    android:layout_height="?attr/home_item_publisher_avatar_size"
+                    app:glideRequests="@{glideRequests}"
+                    app:newsPublisherAvatar="@{item.publisherAvatar}"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_5dp"
+                    android:text="@{item.getPublisherAndPublishedDate(context)}"
+                    android:textColor="?attr/home_item_publisher_title_color"
+                    android:textSize="?attr/home_item_publisher_title_size"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/image_publisher"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="@tools:sample/full_names" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="?attr/home_item_icon_size"
+                    android:layout_height="?attr/home_item_icon_size"
+                    android:src="@drawable/ic_share"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+</layout>

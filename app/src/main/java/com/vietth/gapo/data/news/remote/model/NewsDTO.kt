@@ -28,8 +28,10 @@ fun NewsDTO.mapToDomain() = News(
     description,
     contentType,
     publishedDate,
-    images?.map { it.href.orEmpty() }  ?: emptyList(),
-    content?.mapToDomain()
+    images?.map { it.href.orEmpty() } ?: emptyList(),
+    content?.mapToDomain(),
+    publisher?.mapToDomain(),
+    avatar?.href
 )
 
 fun List<NewsDTO>.mapToDomain() = map { it.mapToDomain() }

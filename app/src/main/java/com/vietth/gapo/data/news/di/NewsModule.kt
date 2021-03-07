@@ -45,7 +45,7 @@ internal abstract class NewsModule {
 
         @Provides
         @Singleton
-        internal fun provideMediaApiService(
+        internal fun provideNewsApiService(
             @OkHttpRESTfulQualifier client: Lazy<OkHttpClient>,
             moshi: Moshi
         ) = Retrofit.Builder()

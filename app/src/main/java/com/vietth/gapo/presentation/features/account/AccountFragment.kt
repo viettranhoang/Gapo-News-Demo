@@ -1,20 +1,22 @@
-package com.vietth.gapo.presentation.home
+package com.vietth.gapo.presentation.features.account
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
+import com.vietth.gapo.R
 import com.vietth.gapo.core.fragment.autoCleared
 import com.vietth.gapo.core.glide.GlideApp
 import com.vietth.gapo.core.glide.GlideRequests
-import com.vietth.gapo.databinding.HomeFragmentBinding
+import com.vietth.gapo.databinding.AccountFragmentBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class HomeFragment : Fragment() {
+class AccountFragment : Fragment() {
 
-    private var binding by autoCleared<HomeFragmentBinding>()
+    private var binding by autoCleared<AccountFragmentBinding>()
 
     private lateinit var glideRequests: GlideRequests
 
@@ -23,7 +25,7 @@ class HomeFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = HomeFragmentBinding.inflate(inflater, container, false)
+        binding = AccountFragmentBinding.inflate(inflater, container, false)
         initView()
         return binding.root
     }
@@ -34,6 +36,9 @@ class HomeFragment : Fragment() {
         with(binding) {
             lifecycleOwner = viewLifecycleOwner
 
+            btnNotificationDetails.setOnClickListener {
+                findNavController().navigate(R.id.action_accountFragment_to_detailFragment)
+            }
         }
     }
 }

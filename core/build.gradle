@@ -63,6 +63,7 @@ dependencies {
     implementation Libs.AndroidX.coreKtx
     implementation Libs.AndroidX.appCompat
     implementation Libs.AndroidX.recyclerView
+    implementation Libs.AndroidX.viewPager2
 
     implementation Libs.AndroidX.Lifecycle.commonJava8
 
@@ -77,6 +78,9 @@ dependencies {
     implementation Libs.Glide.core
     implementation Libs.Glide.okhttp3
     kapt Libs.Glide.compiler
+
+    implementation Libs.ExoPlayer.exoPlayer
+    implementation Libs.ExoPlayer.core
 
     implementation Libs.Moshi.moshiKotlin
     kapt Libs.Moshi.kotlinCodegen
