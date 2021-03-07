@@ -12,5 +12,17 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
+
+        <item name="home_item_margin_common">@dimen/home_margin_common</item>
+        <item name="home_item_title_size">@dimen/_16sp</item>
+        <item name="home_item_title_color">@color/black_alpha_80</item>
+        <item name="home_item_description_size">@dimen/_12sp</item>
+        <item name="home_item_description_color">@color/black_alpha_60</item>
+        <item name="home_item_corner_radius">@dimen/_8dp</item>
+        <item name="home_item_card_elevation">@dimen/_5dp</item>
+        <item name="home_item_publisher_avatar_size">@dimen/_15dp</item>
+        <item name="home_item_publisher_title_size">@dimen/_10sp</item>
+        <item name="home_item_publisher_title_color">@color/black_alpha_60</item>
+        <item name="home_item_icon_size">@dimen/_15dp</item>
     </style>
 </resources>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="home_item_margin_common" format="dimension" />
+    <attr name="home_item_title_size" format="dimension" />
+    <attr name="home_item_title_color" format="color" />
+    <attr name="home_item_description_size" format="dimension" />
+    <attr name="home_item_description_color" format="dimension" />
+    <attr name="home_item_corner_radius" format="dimension" />
+    <attr name="home_item_card_elevation" format="dimension" />
+    <attr name="home_item_publisher_avatar_size" format="dimension" />
+    <attr name="home_item_publisher_title_size" format="dimension" />
+    <attr name="home_item_publisher_title_color" format="color" />
+    <attr name="home_item_icon_size" format="dimension" />
+</resources>
