@@ -11,4 +11,6 @@
     <attr name="home_item_publisher_title_size" format="dimension" />
     <attr name="home_item_publisher_title_color" format="color" />
     <attr name="home_item_icon_size" format="dimension" />
+    <attr name="home_item_story_margin_size" format="dimension" />
+
 </resources>

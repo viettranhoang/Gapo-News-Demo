@@ -47,13 +47,6 @@ class HomeFragment : Fragment() {
         return binding.root
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-//        homeViewModel.fetchData()
-
-    }
-
     private fun initView() {
         glideRequests = GlideApp.with(this)
         homeAdapter = HomeAdapter(
@@ -63,11 +56,6 @@ class HomeFragment : Fragment() {
             appCoroutineDispatcher.computation
         )
         initHomeRecyclerView()
-
-        with(binding) {
-
-
-        }
     }
 
     private fun initHomeRecyclerView() {

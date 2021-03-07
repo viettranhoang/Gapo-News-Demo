@@ -14,7 +14,7 @@ class NewsRemoteImpl @Inject constructor(
         // Url + EndPoint => encrypt dưới C
         val url = "https://raw.githubusercontent.com/Akaizz/static/master/newsfeed.json"
 
-        return newsApiService.fetchNewsFeed(url).news.orEmpty()
+        return newsApiService.fetchNewsFeed(url).news.orEmpty().shuffled()
     }
 
     override suspend fun fetchNewsDetail(): NewsDTO? {

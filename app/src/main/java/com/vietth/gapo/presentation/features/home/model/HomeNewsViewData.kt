@@ -47,9 +47,10 @@ interface HomeNewsViewData {
 
 fun List<News>.mapToHomeNewsViewData(): List<HomeNewsViewData> = map {
     when (it.type) {
+        NewsType.LONG_FORM -> it.mapToHomeNewsLongFormViewData()
         NewsType.VIDEO -> it.mapToHomeNewsVideoViewData()
         NewsType.GALLERY -> it.mapToHomeNewsGalleryViewData()
-        NewsType.STORY -> it.mapToHomeNewsGalleryViewData()
+        NewsType.STORY -> it.mapToHomeNewsStoryViewData()
         else -> it.mapToHomeNewsArticleViewData()
     }
 }
