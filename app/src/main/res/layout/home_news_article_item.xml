@@ -20,6 +20,7 @@
     </data>
 
     <com.google.android.material.card.MaterialCardView
+        android:onClick="@{(v) -> homeViewModel.onClickNewsItem(v)}"
         app:cardElevation="?attr/home_item_card_elevation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

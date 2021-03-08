@@ -22,8 +22,9 @@
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:cardElevation="?attr/home_item_card_elevation"
-        app:cardCornerRadius="?attr/home_item_corner_radius">
+        android:onClick="@{(v) -> homeViewModel.onClickNewsItem(v)}"
+        app:cardCornerRadius="?attr/home_item_corner_radius"
+        app:cardElevation="?attr/home_item_card_elevation">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -51,8 +52,8 @@
 
                 <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/button_play"
-                    android:layout_width="@dimen/_35dp"
-                    android:layout_height="@dimen/_35dp"
+                    android:layout_width="@dimen/_45dp"
+                    android:layout_height="@dimen/_45dp"
                     android:layout_gravity="center"
                     app:srcCompat="@drawable/ic_play_circle_filled" />
             </FrameLayout>
@@ -68,8 +69,8 @@
                 android:ellipsize="end"
                 android:maxLines="2"
                 android:text="@{item.title}"
-                android:textSize="?attr/home_item_title_size"
                 android:textColor="?attr/home_item_title_color"
+                android:textSize="?attr/home_item_title_size"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/layout_video"
@@ -89,10 +90,10 @@
                     android:layout_width="?attr/home_item_publisher_avatar_size"
                     android:layout_height="?attr/home_item_publisher_avatar_size"
                     app:glideRequests="@{glideRequests}"
-                    app:newsPublisherAvatar="@{item.publisherAvatar}"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:newsPublisherAvatar="@{item.publisherAvatar}" />
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="wrap_content"
