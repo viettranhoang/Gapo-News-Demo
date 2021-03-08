@@ -35,10 +35,8 @@ An app which attempts to use the latest cutting edge libraries and tools.
 
 ## NOT IMPLEMENTED YET
 
-* Detailed implementations in the DiffUtil.Callback classes.
 * Deep dive into dealing ExoPlayer in RecyclerView.
 * Deep dive into Glide optimization.
-* Dealing click on news feeds items.
 
 ### LICENCE
 
