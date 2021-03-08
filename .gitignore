@@ -99,5 +99,4 @@ lint/tmp/
 # lint/reports/
 .idea
 
-keystore.properties
-/app/src/key/moviesearch.keystore
+!demo/

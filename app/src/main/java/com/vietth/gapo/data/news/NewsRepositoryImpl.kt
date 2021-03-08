@@ -11,6 +11,7 @@ import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.merge
 import timber.log.Timber
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -22,6 +23,11 @@ class NewsRepositoryImpl @Inject constructor(
     private val remoteExceptionHandler: RemoteExceptionHandler
 ) : NewsRepository {
 
+    /**
+     * Sử dụng flow để merge các DataSources
+     * Request data song song từ các DataSources
+     * Nếu nhận được dữ liệu từ Remote sẽ lưu xuống Cache trước khi emit.
+     */
     @ExperimentalCoroutinesApi
     override fun fetchNewsFeedFlow(): Flow<List<News>> {
         val cacheFlow = newsCache.newsFlow()
@@ -33,8 +39,7 @@ class NewsRepositoryImpl @Inject constructor(
         }.catch {
             Timber.e(it)
         }
-//        return merge(cacheFlow, remoteFlow)
-        return remoteFlow
+        return merge(cacheFlow, remoteFlow)
     }
 
     override suspend fun fetchNewsDetail(): Result<News> {

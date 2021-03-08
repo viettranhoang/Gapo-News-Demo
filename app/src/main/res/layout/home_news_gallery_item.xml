@@ -22,6 +22,7 @@
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:onClick="@{(v) -> homeViewModel.onClickNewsItem(v)}"
         app:cardCornerRadius="?attr/home_item_corner_radius"
         app:cardElevation="?attr/home_item_card_elevation">
 
@@ -39,9 +40,9 @@
 
                 <androidx.viewpager2.widget.ViewPager2
                     android:id="@+id/view_pager"
-                    android:layout_marginBottom="?attr/home_item_margin_common"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_marginBottom="?attr/home_item_margin_common"
                     app:submitList="@{item.images}" />
 
                 <androidx.appcompat.widget.AppCompatTextView
