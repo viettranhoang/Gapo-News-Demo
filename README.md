@@ -4,7 +4,7 @@ An app which attempts to use the latest cutting edge libraries and tools.
 
 [Demo App download]()
 
-![gapo-demo]()
+![gapo-demo](https://github.com/viettranhoang/Gapo-News-Demo/blob/development/demo/gapo-news-demo-screenshot.png?raw=true)
 
 ## Architecture
 
